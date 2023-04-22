@@ -10,15 +10,15 @@ export const useTable = (props) => {
   const searchParam = ref({})
 
   // 获取数据
-  const fetchData = async (searchParam = {}) => {
+  const fetchData = async (param) => {
     console.log('搜索参数')
-    console.log(searchParam)
+    console.log(param)
     try {
       loading.value = true
       const { data, code, msg, total } = await props.query({
         pageNum: pagination.page,
         pageSize: pagination.pageSize,
-        ...searchParam
+        ...param
       })
       if (code === 200) {
         pagination.itemCount = total
@@ -28,7 +28,7 @@ export const useTable = (props) => {
         message.error(msg)
       }
     } catch (error) {
-      table.loading = false
+      loading.value = false
       console.error(error)
     }
   }

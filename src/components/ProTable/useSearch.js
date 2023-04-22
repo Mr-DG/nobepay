@@ -1,9 +1,9 @@
 export const useSearch = ({ searchParam, searchList, fetchData }) => {
   // 搜索
-  const search = async () => {
+  const search = () => {
     console.log('搜索')
     const params = {}
-    for (let key in searchList) {
+    for (const key in searchList) {
       if (searchList[key].value) {
         if (searchList[key].key === 'time') {
           const [beginDate, endDate] = [...searchList[key].value]
@@ -20,7 +20,7 @@ export const useSearch = ({ searchParam, searchList, fetchData }) => {
 
   // 重置
   const reset = () => {
-    for (let key in searchList) {
+    for (const key in searchList) {
       searchList[key].value = null
     }
     fetchData()

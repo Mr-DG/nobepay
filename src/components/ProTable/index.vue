@@ -65,7 +65,7 @@ const props = defineProps({
   },
   rowKey: {
     type: Function,
-    default: () => (rowData) => 'id'
+    default: () => () => 'id'
   },
   searchList: {
     type: Object,

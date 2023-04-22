@@ -1,5 +1,5 @@
 <template>
-	首页
+  开卡
 </template>
 
 <script setup>

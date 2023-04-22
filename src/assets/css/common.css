@@ -1,0 +1,14 @@
+:root {
+  /* 文字大小 */
+  --title1: 24px;
+  --title2: 20px;
+  --tilte3: 18px;
+  --content: 16px;
+
+  /* 颜色 */
+  --primary: #fcd535;
+  --money: #C99400;
+  --gray-btn: #eaecef;
+  --gray-text: #707A8A;
+  --gray-bg: #FAFAFA;
+}

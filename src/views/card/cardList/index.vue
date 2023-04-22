@@ -1,5 +1,5 @@
 <template>
-	首页
+  卡片列表
 </template>
 
 <script setup>

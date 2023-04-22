@@ -6,6 +6,7 @@ import router from './router/index.js'
 import i18n from './locales/index.js';
 import api from './api/index'
 import './assets/css/default.css'
+import './assets/css/common.css'
 
 const app = createApp(App)
 app.use(createPinia())

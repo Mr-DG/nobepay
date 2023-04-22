@@ -1,21 +1,37 @@
 <template>
-  <n-modal v-model:show="showModal"
-    style="width: 600px"
-    title="卡片预设"
-    class="custom-card"
-    preset="card"
+  <n-modal
+    v-model:show="showModal"
+    v-bind="getProps"
     :bordered="false"
-    size="huge"
     role="dialog"
     aria-modal="true">
-    内容
-    <template #footer>
-      尾部
-    </template>
+    <slot></slot>
   </n-modal>
 </template>
 
 <script setup>
+import { NModal } from 'naive-ui'
+import { omit } from '@utils/index.js'
+
+const props = defineProps({
+  ...NModal.props,
+  title: {
+    type: String,
+    default: () => '默认标题'
+  },
+  preset: {
+    type: String,
+    default: () => 'card'
+  },
+  style: {
+    type: String,
+    default: () => 'width: 630px;'
+  }
+})
+
+
+const getProps = computed(() => omit(props, ['show']))
+
 const showModal = ref(false)
 
 const openModal = () => {
@@ -26,3 +42,8 @@ defineExpose({
   openModal
 })
 </script>
+<style>
+.n-card>.n-card-header .n-card-header__main {
+  font-weight: bold;
+}
+</style>

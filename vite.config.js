@@ -1,6 +1,5 @@
 import { fileURLToPath, URL } from 'node:url'
 import { defineConfig, loadEnv } from 'vite'
-import path from 'path'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx' // 开启jsx配置
 // import postCssPxToRem from 'postcss-pxtorem';
@@ -12,6 +11,7 @@ import removeConsole from 'vite-plugin-remove-console'; // 删除console
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import postcssPresetEnv from 'postcss-preset-env';
+import svgLoader from 'vite-svg-loader'
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
@@ -21,6 +21,7 @@ export default defineConfig(({ mode }) => {
       vue(),
       vueJsx(),
       removeConsole(),
+      svgLoader(),
       AutoImport({
         // 自动引入的api从这里找
         imports: ['vue', 'vue-router', 'pinia', {
@@ -119,14 +120,6 @@ export default defineConfig(({ mode }) => {
             grid: true
           })
         ]
-      },
-      preprocessorOptions: { //less 地址
-        less: {
-          modifyVars: {
-            hack: `true; @import (reference) "${path.resolve('src/assets/less/default.less')}";`
-          },
-          javascriptEnabled: true
-        }
       }
     },
 
