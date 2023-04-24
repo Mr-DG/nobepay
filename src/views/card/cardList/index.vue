@@ -8,22 +8,27 @@
       :searchList="searchList">
     </ProTable>
   </div>
-  <ProModal ref="proModalRef" />
+  <!-- 充值modal -->
+  <ProModal ref="rechargeModalRef" title="卡片充值">
+    <RechargeModal />
+  </ProModal>
 </template>
 
 <script setup>
 import ProTable from '@components/ProTable/index.vue'
 import ProModal from '@components/ProModal/index.vue'
-import { columns } from './columns'
+import RechargeModal from './components/rechargeModal.vue'
+import { useColumns } from './columns'
 import { useSearch } from './useSearch'
 
 const { searchList } = useSearch()
 
-const proModalRef = ref()
-
-const add = () => {
-  proModalRef.value.openModal()
+const rechargeModalRef = ref()
+const openModal = (key) => {
+  key == 2 && rechargeModalRef.value.openModal()
 }
+
+const { columns } = useColumns({ openModal })
 
 const getData = () => {
   return new Promise((res) => {

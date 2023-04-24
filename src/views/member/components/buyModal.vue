@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="pay-method">
-        <div class="title">支付费用</div>
+        <div class="title">支付方式</div>
         <div class="method-box">
           <MyRadio :data="payMethodRadio" v-model:value="formData.payMethod" />
         </div>

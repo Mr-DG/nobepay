@@ -17,8 +17,11 @@
 <script setup>
 import TopNav from '@/components/TopNav/index.vue'
 const themeOverrides = reactive({
-  'common': {
-    'textColor': '#ff0000'
+  "common": {
+    "primaryColor": "#fcd535FF",
+    "primaryColorHover": "#fcd535FF",
+    "primaryColorPressed": "#FFD31EFF",
+    "primaryColorSuppl": "#fcd535FF"
   },
   'Button': {
     'textColorPrimary': '#1E2329',
@@ -37,6 +40,11 @@ const themeOverrides = reactive({
     'borderFocusPrimary': '#FCD535FF',
     'borderDisabledPrimary': '#FCD535FF',
     'rippleColorPrimary': '#FCD535FF'
+  },
+  "Input": {
+    "borderHover": "1px solid #fcd535",
+    "borderFocus": "1px solid #fcd535",
+    "boxShadowFocus": "0"
   }
 })
 </script>
