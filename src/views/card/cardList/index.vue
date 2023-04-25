@@ -12,20 +12,27 @@
   <ProModal ref="rechargeModalRef" title="卡片充值">
     <RechargeModal />
   </ProModal>
+  <!-- 删除modal -->
+  <ProModal ref="deleteModalRef" title="卡片销毁" style="width: 460px;">
+    <DeleteModal />
+  </ProModal>
 </template>
 
 <script setup>
 import ProTable from '@components/ProTable/index.vue'
 import ProModal from '@components/ProModal/index.vue'
 import RechargeModal from './components/rechargeModal.vue'
+import DeleteModal from './components/deleteModal.vue'
 import { useColumns } from './columns'
 import { useSearch } from './useSearch'
 
 const { searchList } = useSearch()
 
 const rechargeModalRef = ref()
+const deleteModalRef = ref()
 const openModal = (key) => {
   key == 2 && rechargeModalRef.value.openModal()
+  key == 5 && deleteModalRef.value.openModal()
 }
 
 const { columns } = useColumns({ openModal })

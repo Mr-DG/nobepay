@@ -44,6 +44,7 @@ defineExpose({
 </script>
 <style>
 .n-card>.n-card-header .n-card-header__main {
+  font-size: var(--title2);
   font-weight: bold;
 }
 </style>
