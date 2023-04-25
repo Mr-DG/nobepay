@@ -1,5 +1,11 @@
 import { NButton, NDropdown } from 'naive-ui'
 
+const handleSelect = (key, options, row, openModal) => {
+  console.log(key)
+  console.log(row)
+  openModal(key)
+}
+
 const options = [
   { label: '查看卡片', key: 0 },
   { label: '编辑地址', key: 1 },
@@ -8,12 +14,6 @@ const options = [
   { label: '卡片账单', key: 4 },
   { label: '永久删卡', key: 5 }
 ]
-
-const handleSelect = (key, options, row, openModal) => {
-  console.log(key)
-  console.log(row)
-  openModal(key)
-}
 
 export const useColumns = ({ openModal }) => {
 

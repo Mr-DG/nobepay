@@ -4,7 +4,8 @@
     v-bind="getProps"
     :bordered="false"
     role="dialog"
-    aria-modal="true">
+    aria-modal="true"
+    style="width: 630px">
     <slot></slot>
   </n-modal>
 </template>
@@ -22,10 +23,6 @@ const props = defineProps({
   preset: {
     type: String,
     default: () => 'card'
-  },
-  style: {
-    type: String,
-    default: () => 'width: 630px;'
   }
 })
 
@@ -37,9 +34,13 @@ const showModal = ref(false)
 const openModal = () => {
   showModal.value = true
 }
+const closeModal = () => {
+  showModal.value = false
+}
 
 defineExpose({
-  openModal
+  openModal,
+  closeModal
 })
 </script>
 <style>

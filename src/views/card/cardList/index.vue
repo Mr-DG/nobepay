@@ -10,11 +10,15 @@
   </div>
   <!-- 充值modal -->
   <ProModal ref="rechargeModalRef" title="卡片充值">
-    <RechargeModal />
+    <RechargeModal @onCloseModel="handleClose(2)" />
   </ProModal>
   <!-- 删除modal -->
   <ProModal ref="deleteModalRef" title="卡片销毁" style="width: 460px;">
-    <DeleteModal />
+    <DeleteModal @onCloseModel="handleClose(5)" />
+  </ProModal>
+  <!-- 卡片modal -->
+  <ProModal ref="cardModalRef" title="卡片信息" style="width: 820px;">
+    <CardModal />
   </ProModal>
 </template>
 
@@ -23,6 +27,7 @@ import ProTable from '@components/ProTable/index.vue'
 import ProModal from '@components/ProModal/index.vue'
 import RechargeModal from './components/rechargeModal.vue'
 import DeleteModal from './components/deleteModal.vue'
+import CardModal from './components/cardModal.vue'
 import { useColumns } from './columns'
 import { useSearch } from './useSearch'
 
@@ -30,9 +35,15 @@ const { searchList } = useSearch()
 
 const rechargeModalRef = ref()
 const deleteModalRef = ref()
+const cardModalRef = ref()
 const openModal = (key) => {
+  key == 0 && cardModalRef.value.openModal()
   key == 2 && rechargeModalRef.value.openModal()
   key == 5 && deleteModalRef.value.openModal()
+}
+const handleClose = (key) => {
+  key == 2 && rechargeModalRef.value.closeModal()
+  key == 5 && deleteModalRef.value.closeModal()
 }
 
 const { columns } = useColumns({ openModal })
