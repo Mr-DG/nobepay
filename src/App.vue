@@ -55,6 +55,12 @@ body,
 #app,
 .config {
   height: 100%;
+  background-color: var(--gray-bg);
+  box-sizing: border-box;
+}
+
+#app {
+  padding: 0 15px;
 }
 
 .main-box {

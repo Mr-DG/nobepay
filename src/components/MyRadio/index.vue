@@ -6,7 +6,7 @@
       v-for="item in props.data" :key="item.value"
       class="radio-item"
       :class="{ 'radio-active': item.value == value }"
-      :style="`width: ${itemWidth}`"
+      :style="style"
       @click="handleClick(item.value)">
       {{ item.label }}
       <div v-if="item.money" style="color: var(--money); font-size: 12px;">
@@ -20,7 +20,18 @@
 </template>
 
 <script setup>
-const props = defineProps(['data', 'value', 'itemWidth'])
+const props = defineProps({
+  data: {
+    type: Object
+  },
+  value: {
+    type: String
+  },
+  style: {
+    type: Object,
+    default: () => 'flex: 1'
+  }
+})
 const emit = defineEmits(['update:value'])
 
 const active = ref()
@@ -37,7 +48,7 @@ const handleClick = (key) => {
   flex-wrap: wrap;
 
   .radio-item {
-    flex: 1;
+    // flex: 1;
     background-color: var(--gray-bg);
     padding: 5px 0;
     text-align: center;
@@ -50,7 +61,7 @@ const handleClick = (key) => {
     justify-content: center;
 
     &:hover {
-      border: 1px solid var(--primary);
+      border: 1px solid var(--primary) !important;
     }
   }
 
@@ -59,7 +70,7 @@ const handleClick = (key) => {
   }
 
   .radio-active {
-    border: 1px solid var(--primary);
+    border: 1px solid var(--primary) !important;
     position: relative;
 
     &::before {
