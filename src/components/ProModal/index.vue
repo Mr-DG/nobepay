@@ -1,11 +1,11 @@
 <template>
   <n-modal
     v-model:show="showModal"
+    class="nmodal"
     v-bind="getProps"
     :bordered="false"
     role="dialog"
-    aria-modal="true"
-    style="width: 630px">
+    aria-modal="true">
     <slot></slot>
   </n-modal>
 </template>
@@ -47,5 +47,9 @@ defineExpose({
 .n-card>.n-card-header .n-card-header__main {
   font-size: var(--title2);
   font-weight: bold;
+}
+
+.nmodal {
+  width: 630px;
 }
 </style>

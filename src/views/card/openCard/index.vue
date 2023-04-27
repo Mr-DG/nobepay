@@ -32,6 +32,7 @@
     </div>
     <div class="info-form">
       <ProForm :searchList="searchList" :search="false"></ProForm>
+      <ProForm :searchList="searchList2" :search="false"></ProForm>
     </div>
     <div class="open">
       <div class="left">
@@ -43,14 +44,29 @@
         合计: 1020￥
       </div>
       <div class="right">
-        <n-button type="primary" size="large" class="open-btn">开卡</n-button>
+        <n-button
+          type="primary"
+          size="large"
+          class="open-btn"
+          @click="handleOpenCard">开卡</n-button>
       </div>
     </div>
+    <ProModal
+      ref="authModalRef"
+      title="实名认证"
+      style="width: 440px">
+      <AuthModal></AuthModal>
+    </ProModal>
   </div>
 </template>
 
 <script setup>
 import Reflash from '@assets/images/icon/reflash.svg'
+import ProModal from '@components/ProModal/index.vue'
+import AuthModal from './authModal.vue'
+import { useSearch } from './useSearch'
+import { useSearch2 } from './useSearch2'
+
 const formData = ref({
   area: '0',
   paragraph: ''
@@ -78,25 +94,13 @@ const paragraphOptions = [
   { label: '533277', value: '533278', type: 1, key: 7 },
 ]
 
-const searchList = ref({
-  firstName: {
-    type: 'input',
-    key: 'firstName',
-    label: 'FirstName',
-    value: '',
-    placeholder: '请输入FirstName',
-    rules: {
-      required: true,
-      trigger: ["blur", "input"],
-      message: "请输入 inputValue"
-    }
-  },
-  role: {
-    type: 'select', key: 'role', label: '角色', value: [],
-    options: [{ label: '开启', value: '0' }, { label: '关闭', value: '1' }]
-  },
-  dataTime: { type: 'dateTime', key: 'time', label: '时间', value: undefined }
-})
+const { searchList } = useSearch()
+const { searchList2 } = useSearch2()
+
+const authModalRef = ref()
+const handleOpenCard = () => {
+  authModalRef.value.openModal()
+}
 </script>
 
 <style scoped lang="less">

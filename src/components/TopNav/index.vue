@@ -26,7 +26,7 @@
           <Down />
         </div>
       </n-dropdown>
-      <div class="nav-item">在线客服</div>
+      <div class="nav-item" @click="router.push('/customerService')">在线客服</div>
     </div>
     <div class="nav-right">
       <div class="feture-item">
@@ -121,6 +121,7 @@ nav {
   justify-content: space-between;
   height: 64px;
   padding: 0 32px;
+  z-index: 99;
 
   .nav-left {
     display: flex;

@@ -59,9 +59,9 @@ body,
   box-sizing: border-box;
 }
 
-#app {
-  padding: 0 15px;
-}
+// #app {
+//   padding: 0 15px;
+// }
 
 .main-box {
   max-width: 1200px;

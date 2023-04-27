@@ -7,7 +7,8 @@
             <n-form-item
               :label="item.label"
               :key="key"
-              style="min-width:200px;">
+              style="min-width:200px;"
+              :rule="item.rule">
               <!-- input -->
               <n-input
                 v-if="item.type === 'input'"
@@ -15,11 +16,6 @@
                 :allow-input="noSideSpace"
                 v-model:value="item.value"
                 :placeholder="item.placeholder"
-                :rule="[{
-                    required: true,
-                    trigger: ['blur', 'input'],
-                    message: '123123'
-                  }]"
                 clearable />
               <!-- select -->
               <n-select
