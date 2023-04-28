@@ -21,7 +21,9 @@
         </n-button>
       </n-form-item>
     </n-form>
-    <div class="register" @click="router.push('/register')">
+    <div
+      class="register"
+      @click="router.push('/register')">
       创建一个BNpay账号
     </div>
   </div>
@@ -54,10 +56,11 @@ const handleValidateClick = (e) => {
 
 <style scoped lang="less">
 .login-box {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
+  width: 300px;
+  // display: flex;
+  // align-items: center;
+  // flex-direction: column;
+  // justify-content: center;
   padding-top: 150px;
 
   .title {
@@ -67,7 +70,7 @@ const handleValidateClick = (e) => {
   }
 
   .login-form {
-    width: 300px;
+    // width: 300px;
 
     .login-btn {
       width: 100%;
@@ -77,7 +80,9 @@ const handleValidateClick = (e) => {
   .register {
     cursor: pointer;
     font-size: var(--content);
-    color: var(--money);
+    justify-self: flex-start;
+    align-self: flex-start;
+    color: #C99400;
   }
 }
 </style>

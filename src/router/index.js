@@ -40,6 +40,12 @@ const router = createRouter({
       path: '/customerService',
       name: 'customerService',
       component: () => import('@/views/customerService/index.vue')
+    },
+    // 快速充值recharge
+    {
+      path: '/recharge',
+      name: 'recharge',
+      component: () => import('@/views/recharge/index.vue')
     }
   ]
 })

@@ -6,7 +6,7 @@
         <div class="logo-text">BNpay</div>
       </div>
       <div class="nav-item" @click="router.push('/')">首页</div>
-      <div class="nav-item">快速充值</div>
+      <div class="nav-item" @click="router.push('/recharge')">快速充值</div>
       <n-dropdown
         trigger="hover"
         :options="cardOptions"
@@ -29,6 +29,12 @@
       <div class="nav-item" @click="router.push('/customerService')">在线客服</div>
     </div>
     <div class="nav-right">
+      <div class="feture-item" @click="router.push('/login')">
+        登录
+      </div>
+      <div class="feture-item" @click="router.push('/register')">
+        <n-button type="primary">注册</n-button>
+      </div>
       <div class="feture-item">
         <Feature1 />
       </div>
